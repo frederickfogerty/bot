@@ -1,0 +1,16 @@
+REPO=hey-dot
+OWNER=holisio
+
+USER=holisbot
+AUTH_TOKEN=auth_token
+HOOK_SECRET=webhook_secret
+
+MERGE_REGEX="@holisbot (.* )?squ[ia]sh.*"
+
+# For squash&merging
+REPO_PATH=
+REPO_BRANCH=master
+REPO_REMOTE=origin
+
+# Users to auto merge prs from
+TRUSTED_USERS="holisbot"

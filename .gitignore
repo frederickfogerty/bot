@@ -1,6 +1,7 @@
 result.md
 #hide auth token :o
 config.yml
+.env
 
 *.out
 
@@ -57,4 +58,3 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-

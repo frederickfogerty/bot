@@ -7,9 +7,10 @@ from github3.pulls import PullRequest
 
 from collections import deque
 
-class PullBot(PullValidator, GitMerger):
-    config = yaml.load(open("config.yml"))
+from settings import config
 
+class PullBot(PullValidator, GitMerger):
+    config = config
     def __init__(self):
         GitMerger.__init__(self)
         PullValidator.__init__(self)
