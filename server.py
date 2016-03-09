@@ -9,6 +9,8 @@ import json, yaml
 from hashlib import sha1
 import hmac
 
+from settings import config
+
 class AuthenticationException(Exception):
     pass
 
@@ -16,7 +18,7 @@ class Server(Resource):
     on_pr = signal("pull_event")
     on_comment = signal("comment_event")
     isLeaf = True
-    secret = yaml.load(open("config.yml"))["post_secret"]
+    secret = config["post_secret"]
 
     def render_GET(self, request):
         return "<html><body>What are you doin here buddy?</body></html>"
@@ -29,7 +31,7 @@ class Server(Resource):
 
         #http://pubsubhubbub.googlecode.com/svn/trunk/pubsubhubbub-core-0.3.html#authednotify
         hash = hmac.new(self.secret, request.content.getvalue(), sha1)
-        
+
         if hash.digest().encode("hex") != sig:
             raise AuthenticationException("Could not identify")
 
