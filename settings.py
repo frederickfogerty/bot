@@ -17,4 +17,4 @@ config['merge_re'] = os.environ.get("MERGE_REGEX")
 config['path_to_repo'] = os.environ.get("REPO_PATH")
 config['repo_branch'] = os.environ.get("REPO_BRANCH")
 config['repo_remote'] = os.environ.get("REPO_REMOTE")
-config['trusted_users'] = ['holisbot']
+config['trusted_users'] = map(str.strip, os.environ.get("TRUSTED_USERS").split(","))
